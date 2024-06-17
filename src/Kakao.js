@@ -28,6 +28,10 @@ const Kakao = () => {
     }, 2000); // 2초 동안 로딩창 표시
   };
 
+  const handleBackClick = () => {
+    navigate(-1); // 이전 페이지로 이동
+  };
+
   return (
     <div className={loading ? "loading-overlay" : ""}>
       {loading ? (
