@@ -1,7 +1,7 @@
 {
   "name": "ahyunyouth",
   "version": "0.1.0",
-  "homepage": "https://github.com/sm970309/AhyunYouth_CJ",
+  "homepage": "https://sm970309.github.io/AhyunYouth_CJ",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
