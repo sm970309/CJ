@@ -40,13 +40,7 @@ const Header = () => {
 
   return (
     <header className="App-header" onClick={handleClick}>
-      <img
-        src={`${process.env.PUBLIC_URL}/TEST.png`}
-        alt="Example"
-        style={{
-          width: "330px",
-        }}
-      />
+      <img src={`${process.env.PUBLIC_URL}/main.png`} alt="Example" />
     </header>
   );
 };

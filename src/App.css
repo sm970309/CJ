@@ -14,7 +14,7 @@
   gap: 10px; /* 이미지 간의 간격 */
   overflow-y: auto;
   height: 400px; /* 원하는 높이로 조정 */
-  width: 300px; /* 원하는 너비로 고정 */
+  width: 332px; /* 원하는 너비로 고정 */
   margin: 0 auto; /* 가운데 정렬 */
 }
 

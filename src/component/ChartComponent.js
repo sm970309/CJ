@@ -94,7 +94,7 @@ const HeartComponent = () => {
         {Array.from({ length: 8 }).map((_, index) => (
           <img
             key={index}
-            src={`${process.env.PUBLIC_URL}/programm${index + 1}`} // 각 이미지를 URL로 교체
+            src={`${process.env.PUBLIC_URL}/pro${index + 1}.png`} // 각 이미지를 URL로 교체
             alt={`Programm ${index + 1}`}
             className="image-item"
             onClick={() => handleImageClick(index)}
