@@ -1,24 +1,18 @@
 // src/App.js
 
-import React from "react";
-import {
-  HashRouter as Router,
-  Route,
-  Routes,
-  useNavigate,
-} from "react-router-dom";
-import ChartComponent from "./component/ChartComponent";
-import Main from "./component/Main";
-import Support from "./component/Support";
-import Check from "./component/Check";
-import Detail from "./component/Detail";
-import "./App.css";
+import React from 'react';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { Layout } from './component/Layout';
+import ChartComponent from './component/ChartComponent';
+import Main from './component/Main';
+import Support from './component/Support';
+import Check from './component/Check';
+import Detail from './component/Detail';
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Header />
+      <Layout>
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/ChartComponent" element={<ChartComponent />} />
@@ -26,23 +20,9 @@ function App() {
           <Route path="/check" element={<Check />} />
           <Route path="/detail" element={<Detail />} />
         </Routes>
-      </div>
+      </Layout>
     </Router>
   );
 }
-
-const Header = () => {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate("/");
-  };
-
-  return (
-    <header className="App-header" onClick={handleClick}>
-      <img src={`${process.env.PUBLIC_URL}/main.png`} alt="Example" />
-    </header>
-  );
-};
 
 export default App;

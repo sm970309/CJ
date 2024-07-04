@@ -1,9 +1,10 @@
 // src/components/HeartComponent.js
 
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { db } from "../module/firebase";
-import { doc, getDoc } from "firebase/firestore";
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../module/firebase';
 
 const HeartComponent = () => {
   const [loveAmount, setLoveAmount] = useState(0);
@@ -14,7 +15,7 @@ const HeartComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const projectRef = doc(db, "projects", "projectData");
+        const projectRef = doc(db, 'projects', 'projectData');
         const docSnap = await getDoc(projectRef);
 
         if (docSnap.exists()) {
@@ -22,14 +23,14 @@ const HeartComponent = () => {
           if (fetchedData.Love !== undefined) {
             setLoveAmount(fetchedData.Love);
           } else {
-            console.log("No Love data found!");
+            console.log('No Love data found!');
           }
         } else {
-          console.log("No such document!");
+          console.log('No such document!');
         }
       } catch (error) {
-        console.error("Error fetching data: ", error);
-        setError("데이터를 불러오는데 실패했습니다.");
+        console.error('Error fetching data: ', error);
+        setError('데이터를 불러오는데 실패했습니다.');
       }
     };
 
@@ -50,20 +51,17 @@ const HeartComponent = () => {
   };
 
   return (
-    <div className="component-container" style={{ textAlign: "center" }}>
+    <div className="component-container" style={{ textAlign: 'center' }}>
       <h2>플로잉 현황</h2>
       <div
         style={{
-          position: "relative",
-          width: "300px",
-          height: "300px",
-          margin: "0 auto",
+          position: 'relative',
+          width: '300px',
+          height: '300px',
+          margin: '0 auto',
         }}
       >
-        <svg
-          viewBox="-6 0 140 118.4"
-          style={{ width: "100%", height: "100%", textAlign: "center" }}
-        >
+        <svg viewBox="-6 0 140 118.4" style={{ width: '100%', height: '100%', textAlign: 'center' }}>
           <defs>
             <clipPath id="heartClip">
               <path
@@ -72,14 +70,7 @@ const HeartComponent = () => {
               />
             </clipPath>
           </defs>
-          <rect
-            x="0"
-            y={`${118.4 - filledHeight}`}
-            width="128"
-            height={filledHeight}
-            fill="red"
-            clipPath="url(#heartClip)"
-          />
+          <rect x="0" y={`${118.4 - filledHeight}`} width="128" height={filledHeight} fill="red" clipPath="url(#heartClip)" />
           <path
             d="M94.4,0c-13.6,0-24.4,10.8-30.4,17.2C58,10.8,47.2,0,33.6,0C14.8,0,0,14.8,0,33.6
             c0,22.8,30.8,43.6,64,72.4C97.2,77.2,128,56.4,128,33.6C128,14.8,113.2,0,94.4,0z"
@@ -90,20 +81,73 @@ const HeartComponent = () => {
         </svg>
       </div>
       <p>{`현재 금액: ${loveAmount.toLocaleString()} / ${targetAmount.toLocaleString()}`}</p>
-      <div className="image-container">
+
+      <FlowingList>
         {Array.from({ length: 8 }).map((_, index) => (
-          <img
-            key={index}
-            src={`${process.env.PUBLIC_URL}/pro${index + 1}.png`} // 각 이미지를 URL로 교체
-            alt={`Programm ${index + 1}`}
-            className="image-item"
-            onClick={() => handleImageClick(index)}
-            style={{ cursor: "pointer" }}
-          />
+          <FlowingBox>
+            <FlowingBoxTop>
+              <Image
+                key={index}
+                // src={`${process.env.PUBLIC_URL}/pro${index + 1}.png`} // 각 이미지를 URL로 교체
+                src={`${process.env.PUBLIC_URL}/sample.jpg`}
+                alt={`Programm ${index + 1}`}
+                className="image-item"
+                onClick={() => handleImageClick(index)}
+                style={{ cursor: 'pointer' }}
+              />
+              <FlowingDesc>함께 찬양해요!</FlowingDesc>
+              <FlowingTag>찬양 시간</FlowingTag>
+            </FlowingBoxTop>
+            <FlowingBoxBottom>목표 금액: 0원</FlowingBoxBottom>
+          </FlowingBox>
         ))}
-      </div>
+      </FlowingList>
     </div>
   );
 };
 
 export default HeartComponent;
+
+const FlowingList = styled.div`
+  // grid 2 x ...
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+`;
+
+const FlowingBox = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #f5f5f5;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+`;
+
+const FlowingBoxTop = styled.div`
+  border-bottom: 1px solid #f5f5f5;
+  text-align: start;
+`;
+
+const FlowingDesc = styled.div`
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1%.6;
+`;
+
+const FlowingTag = styled.div`
+  padding: 0.8rem;
+  font-size: 1.4rem;
+  color: gray;
+`;
+
+const FlowingBoxBottom = styled.div`
+  width: 100%;
+  padding: 0.8rem;
+  text-align: start;
+`;
