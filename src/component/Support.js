@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { db } from "./firebase";
+import { db } from "../module/firebase";
 import { doc, getDoc } from "firebase/firestore";
 
 const Support = () => {
@@ -20,7 +20,7 @@ const Support = () => {
         const docSnap = await getDoc(projectRef);
 
         if (docSnap.exists()) {
-          setCurrentAmount(docSnap.data()[project]);
+          setCurrentAmount(docSnap.data()["Love"]);
         } else {
           console.log("No such document!");
         }
@@ -30,7 +30,7 @@ const Support = () => {
     };
 
     fetchData();
-  }, [project]);
+  }, ["Love"]);
 
   const handleInputChange = (e) => {
     const value = e.target.value.replace(/,/g, ""); // 콤마 제거
@@ -45,7 +45,7 @@ const Support = () => {
     const numericAmount = parseInt(amount.replace(/,/g, ""), 10);
     if (!isNaN(numericAmount) && numericAmount > 0) {
       const newAmount = currentAmount + numericAmount;
-      navigate(`/kakao?project=${project}&amount=${newAmount}`);
+      navigate(`/check?newAmount=${newAmount}&amount=${numericAmount}`);
     } else {
       alert("정확한 값을 입력해주세요.");
     }
@@ -55,7 +55,7 @@ const Support = () => {
     navigate(-1); // 이전 페이지로 이동
   };
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       <h2>{project} 플로잉</h2>
 
       <p>현재 금액: {currentAmount.toLocaleString()}</p>
@@ -66,10 +66,27 @@ const Support = () => {
         placeholder="금액 입력"
       />
       <div className="button-container" style={{ marginTop: "10px" }}>
-        <button onClick={handleBackClick} style={{ marginRight: "10px" }}>
+        <button
+          onClick={handleBackClick}
+          style={{
+            padding: "10px 20px",
+            fontSize: "16px",
+            cursor: "pointer",
+            marginRight: "10px",
+          }}
+        >
           뒤로가기
         </button>
-        <button onClick={handleConfirmClick}>확인</button>
+        <button
+          onClick={handleConfirmClick}
+          style={{
+            padding: "10px 20px",
+            fontSize: "16px",
+            cursor: "pointer",
+          }}
+        >
+          확인
+        </button>
       </div>
     </div>
   );

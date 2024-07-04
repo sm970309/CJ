@@ -1,30 +1,28 @@
-// src/Kakao.js
-
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { db } from "./firebase";
+import { db } from "../module/firebase";
 import { doc, updateDoc } from "firebase/firestore";
-import "./Kakao.css"; // CSS 파일을 임포트합니다.
+import "../check.css"; // CSS 파일을 임포트합니다.
 
-const Kakao = () => {
+const Check = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const project = queryParams.get("project");
-  const newAmount = parseInt(queryParams.get("amount"), 10);
+  const newAmount = parseInt(queryParams.get("newAmount"), 10);
+  const amount = parseInt(queryParams.get("amount"), 10);
 
   const handleConfirmClick = async () => {
     setLoading(true);
     if (!isNaN(newAmount) && newAmount > 0) {
       const projectRef = doc(db, "projects", "projectData");
       await updateDoc(projectRef, {
-        [project]: newAmount,
+        ["Love"]: newAmount,
       });
     }
     setTimeout(() => {
       setLoading(false);
-      navigate("/");
+      navigate("/ChartComponent");
     }, 2000); // 2초 동안 로딩창 표시
   };
 
@@ -33,7 +31,10 @@ const Kakao = () => {
   };
 
   return (
-    <div className={loading ? "loading-overlay" : ""}>
+    <div
+      style={{ textAlign: "center" }}
+      className={loading ? "loading-overlay" : ""}
+    >
       {loading ? (
         <div className="loading-container">
           <div className="loading-spinner"></div>
@@ -43,23 +44,33 @@ const Kakao = () => {
         <>
           <h2>플로잉 방법</h2>
           <p>계좌번호: 어쩌구 저쩌구 </p>
-
-          <div>
-            <img
-              src={`${process.env.PUBLIC_URL}/btn_send_small.png`}
-              alt="Kakao Pay Button"
-              style={{ cursor: "pointer", marginTop: "20px" }}
-              onClick={() =>
-                window.open("https://link.kakaopay.com/_/LvYlF0Z", "_blank")
-              }
-            />
-          </div>
+          <p>플로잉 금액: {amount.toLocaleString()}원</p>
           <p>송금을 완료한 후 확인 버튼을 꼭 눌러주세요!</p>
-          <button onClick={handleConfirmClick}>확인</button>
+          <button
+            onClick={handleBackClick}
+            style={{
+              padding: "10px 20px",
+              fontSize: "16px",
+              cursor: "pointer",
+              marginRight: "10px",
+            }}
+          >
+            뒤로가기
+          </button>
+          <button
+            onClick={handleConfirmClick}
+            style={{
+              padding: "10px 20px",
+              fontSize: "16px",
+              cursor: "pointer",
+            }}
+          >
+            확인
+          </button>
         </>
       )}
     </div>
   );
 };
 
-export default Kakao;
+export default Check;

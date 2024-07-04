@@ -7,9 +7,11 @@ import {
   Routes,
   useNavigate,
 } from "react-router-dom";
-import ChartComponent from "./ChartComponent";
-import Support from "./Support";
-import Kakao from "./Kakao";
+import ChartComponent from "./component/ChartComponent";
+import Main from "./component/Main";
+import Support from "./component/Support";
+import Check from "./component/Check";
+import Detail from "./component/Detail";
 import "./App.css";
 
 function App() {
@@ -18,9 +20,11 @@ function App() {
       <div className="App">
         <Header />
         <Routes>
-          <Route path="/" element={<ChartComponent />} />
+          <Route path="/" element={<Main />} />
+          <Route path="/ChartComponent" element={<ChartComponent />} />
           <Route path="/support" element={<Support />} />
-          <Route path="/kakao" element={<Kakao />} />
+          <Route path="/check" element={<Check />} />
+          <Route path="/detail" element={<Detail />} />
         </Routes>
       </div>
     </Router>
@@ -36,7 +40,13 @@ const Header = () => {
 
   return (
     <header className="App-header" onClick={handleClick}>
-      <h1 className="clickable">충주 단기선교</h1>
+      <img
+        src={`${process.env.PUBLIC_URL}/TEST.png`}
+        alt="Example"
+        style={{
+          width: "330px",
+        }}
+      />
     </header>
   );
 };
