@@ -1,28 +1,28 @@
-import React, { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { db } from "../module/firebase";
-import { doc, updateDoc } from "firebase/firestore";
-import "../check.css"; // CSS 파일을 임포트합니다.
+import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { db } from '../module/firebase';
+import { doc, updateDoc } from 'firebase/firestore';
+import '../check.css'; // CSS 파일을 임포트합니다.
 
 const Check = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const newAmount = parseInt(queryParams.get("newAmount"), 10);
-  const amount = parseInt(queryParams.get("amount"), 10);
+  const newAmount = parseInt(queryParams.get('newAmount'), 10);
+  const amount = parseInt(queryParams.get('amount'), 10);
 
   const handleConfirmClick = async () => {
     setLoading(true);
     if (!isNaN(newAmount) && newAmount > 0) {
-      const projectRef = doc(db, "projects", "projectData");
+      const projectRef = doc(db, 'projects', 'projectData');
       await updateDoc(projectRef, {
-        ["Love"]: newAmount,
+        ['Love']: newAmount,
       });
     }
     setTimeout(() => {
       setLoading(false);
-      navigate("/ChartComponent");
+      navigate('/flowing');
     }, 2000); // 2초 동안 로딩창 표시
   };
 
@@ -31,10 +31,7 @@ const Check = () => {
   };
 
   return (
-    <div
-      style={{ textAlign: "center" }}
-      className={loading ? "loading-overlay" : ""}
-    >
+    <div style={{ textAlign: 'center' }} className={loading ? 'loading-overlay' : ''}>
       {loading ? (
         <div className="loading-container">
           <div className="loading-spinner"></div>
@@ -49,10 +46,10 @@ const Check = () => {
           <button
             onClick={handleBackClick}
             style={{
-              padding: "10px 20px",
-              fontSize: "16px",
-              cursor: "pointer",
-              marginRight: "10px",
+              padding: '10px 20px',
+              fontSize: '16px',
+              cursor: 'pointer',
+              marginRight: '10px',
             }}
           >
             뒤로가기
@@ -60,9 +57,9 @@ const Check = () => {
           <button
             onClick={handleConfirmClick}
             style={{
-              padding: "10px 20px",
-              fontSize: "16px",
-              cursor: "pointer",
+              padding: '10px 20px',
+              fontSize: '16px',
+              cursor: 'pointer',
             }}
           >
             확인

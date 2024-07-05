@@ -1,33 +1,16 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 import { Header } from './Header';
 import { Footer } from './Footer';
 
 export const Layout = ({ children }) => (
-  <>
-    <GlobalStyles />
-    <Outer>
-      <Inner>
-        <Header />
-        <Main>{children}</Main>
-        <Footer />
-      </Inner>
-    </Outer>
-  </>
+  <Outer>
+    <Inner>
+      <Header />
+      <Main>{children}</Main>
+      <Footer />
+    </Inner>
+  </Outer>
 );
-
-const GlobalStyles = createGlobalStyle`
-  * {
-    box-sizing: border-box;
-  }
-
-  html {
-    font-size: 62.5%;
-  }
-
-  body {
-    font-size: 1.6rem;
-  }
-`;
 
 const Outer = styled.div`
   width: 100%;

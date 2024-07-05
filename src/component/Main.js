@@ -7,7 +7,7 @@ const Main = () => {
   const navigate = useNavigate();
 
   const handleSupportClick = () => {
-    navigate('/ChartComponent');
+    navigate('/flowing');
   };
 
   return (

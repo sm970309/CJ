@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../module/firebase';
 
-const HeartComponent = () => {
+export const Flowing = () => {
   const [loveAmount, setLoveAmount] = useState(0);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -82,9 +82,12 @@ const HeartComponent = () => {
       </div>
       <p>{`현재 금액: ${loveAmount.toLocaleString()} / ${targetAmount.toLocaleString()}`}</p>
 
+      <FlowingListTitle>하나님의 사랑을 100% 전달하는 플로잉 ▼</FlowingListTitle>
+
       <FlowingList>
         {Array.from({ length: 8 }).map((_, index) => (
           <FlowingBox>
+            <FlowingLabel>카이노스 X 방송팀 응원 지원</FlowingLabel>
             <FlowingBoxTop>
               <Image
                 key={index}
@@ -106,21 +109,40 @@ const HeartComponent = () => {
   );
 };
 
-export default HeartComponent;
+const FlowingListTitle = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem 0;
+`;
 
 const FlowingList = styled.div`
-  // grid 2 x ...
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.8rem;
 `;
 
 const FlowingBox = styled.div`
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid #f5f5f5;
+  border: 0.1rem solid rgb(222, 226, 230);
+  border-radius: 0.8rem;
+  overflow: hidden;
+`;
+
+const FlowingLabel = styled.div`
+  position: absolute;
+  top: 1.6rem;
+  right: 1.2rem;
+  padding: 0.8rem 1.2rem;
+  background-color: #a5e5ff;
+  border-radius: 1.6rem;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.8rem;
 `;
 
 const Image = styled.img`
