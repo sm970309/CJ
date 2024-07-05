@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../module/firebase';
 
-const HeartComponent = () => {
+export const Flowing = () => {
   const [loveAmount, setLoveAmount] = useState(0);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -108,8 +108,6 @@ const HeartComponent = () => {
     </div>
   );
 };
-
-export default HeartComponent;
 
 const FlowingListTitle = styled.div`
   display: flex;
