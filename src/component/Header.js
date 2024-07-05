@@ -13,7 +13,7 @@ export const Header = () => {
       <img
         src={`${process.env.PUBLIC_URL}/main.jpg`}
         alt="Example"
-        style={{ "max-width": "60rem" }}
+        style={{ "max-width": "50rem" }}
       />
     </Wrapper>
   );
