@@ -53,7 +53,7 @@ export const Flowing = () => {
       case 2:
         return '"목소리로! 표정으로! 온몸으로!" 신나게 찬양해요.';
       case 3:
-        return '"미움 다툼 시기 질투 버리고 우리 서로 사랑해" 5살부터 13살까지 하나님 안에서 공동체를 세워가요. ';
+        return '"미움 다툼 시기 질투 버리고 우리 서로 사랑해" 하나님 안에서 공동체를 세워가요. ';
       case 4:
         return '"하나님이 나를 엄청 사랑하신대" 선생님들이 직접 연기하고 춤추고 노래하는 연극을 관람해요.';
       case 5:
@@ -215,6 +215,10 @@ const Image = styled.img`
 const FlowingBoxTop = styled.div`
   border-bottom: 1px solid #f5f5f5;
   text-align: start;
+  height: 280px; // 원하는 높이로 설정
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const FlowingDesc = styled.div`

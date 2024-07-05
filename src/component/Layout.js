@@ -20,7 +20,7 @@ const Outer = styled.div`
 const Inner = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 50rem;
+  max-width: 45rem;
   min-height: 100vh;
   width: 100%;
   height: 100%;

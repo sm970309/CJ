@@ -11,9 +11,9 @@ export const Header = () => {
   return (
     <Wrapper onClick={handleClick}>
       <img
-        src={`${process.env.PUBLIC_URL}/main.jpg`}
+        src={`${process.env.PUBLIC_URL}/header.jpg`}
         alt="Example"
-        style={{ "max-width": "50rem" }}
+        style={{ "max-width": "45rem" }}
       />
     </Wrapper>
   );
