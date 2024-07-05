@@ -210,15 +210,12 @@ const Image = styled.img`
   width: 100%;
   max-width: 100%;
   height: auto;
+  object-fit: cover;
 `;
 
 const FlowingBoxTop = styled.div`
-  border-bottom: 1px solid #f5f5f5;
+  border-bottom: 1px solid rgb(222, 226, 230);
   text-align: start;
-  height: 280px; // 원하는 높이로 설정
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 `;
 
 const FlowingDesc = styled.div`
