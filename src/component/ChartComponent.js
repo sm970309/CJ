@@ -82,6 +82,8 @@ const HeartComponent = () => {
       </div>
       <p>{`현재 금액: ${loveAmount.toLocaleString()} / ${targetAmount.toLocaleString()}`}</p>
 
+      <FlowingListTitle>하나님의 사랑을 100% 전달하는 플로잉 ▼</FlowingListTitle>
+
       <FlowingList>
         {Array.from({ length: 8 }).map((_, index) => (
           <FlowingBox>
@@ -108,6 +110,13 @@ const HeartComponent = () => {
 };
 
 export default HeartComponent;
+
+const FlowingListTitle = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem 0;
+`;
 
 const FlowingList = styled.div`
   display: flex;
