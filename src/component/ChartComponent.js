@@ -109,10 +109,9 @@ const HeartComponent = () => {
 export default HeartComponent;
 
 const FlowingList = styled.div`
-  // grid 2 x ...
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.8rem;
 `;
 
 const FlowingBox = styled.div`
@@ -120,7 +119,9 @@ const FlowingBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid #f5f5f5;
+  border: 0.1rem solid rgb(222, 226, 230);
+  border-radius: 0.8rem;
+  overflow: hidden;
 `;
 
 const Image = styled.img`
