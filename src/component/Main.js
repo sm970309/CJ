@@ -1,19 +1,19 @@
 // src/components/Main.js
 
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 const Main = () => {
   const navigate = useNavigate();
 
   const handleSupportClick = () => {
-    navigate('/flowing');
+    navigate("/flowing");
   };
 
   return (
     <Wrapper>
-      <GoToFlowing onClick={handleSupportClick}>플로잉 하기</GoToFlowing>
+      <GoToFlowing onClick={handleSupportClick}>더 알아보기</GoToFlowing>
     </Wrapper>
   );
 };
@@ -26,17 +26,17 @@ const Wrapper = styled.div`
   left: 0;
   width: 100%;
   height: 100vh;
-  background-image: url('${process.env.PUBLIC_URL}/landing.png');
+  background-image: url("${process.env.PUBLIC_URL}/landing.png");
   background-size: cover;
   background-position: center;
 `;
 
 const GoToFlowing = styled.button`
   position: absolute;
-  bottom: 50%;
+  bottom: 5%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 3.2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   background-color: transparent;
   color: #fff;
