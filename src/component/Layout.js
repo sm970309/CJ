@@ -18,9 +18,10 @@ const Outer = styled.div`
 `;
 
 const Inner = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
-  max-width: 45rem;
+  max-width: 78rem;
   min-height: 100vh;
   width: 100%;
   height: 100%;
