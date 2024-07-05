@@ -32,4 +32,21 @@ const Inner = styled.div`
 const Main = styled.main`
   flex: 1;
   padding: 1.6rem 0;
+  @font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  body {
+    font-family: 'LINESeedKR-Bd', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  * {
+    font-family: 'LINESeedKR-Bd', sans-serif;
+  }
 `;
