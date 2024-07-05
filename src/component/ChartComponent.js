@@ -85,6 +85,7 @@ const HeartComponent = () => {
       <FlowingList>
         {Array.from({ length: 8 }).map((_, index) => (
           <FlowingBox>
+            <FlowingLabel>카이노스 X 방송팀 응원 지원</FlowingLabel>
             <FlowingBoxTop>
               <Image
                 key={index}
@@ -115,6 +116,7 @@ const FlowingList = styled.div`
 `;
 
 const FlowingBox = styled.div`
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -122,6 +124,18 @@ const FlowingBox = styled.div`
   border: 0.1rem solid rgb(222, 226, 230);
   border-radius: 0.8rem;
   overflow: hidden;
+`;
+
+const FlowingLabel = styled.div`
+  position: absolute;
+  top: 1.6rem;
+  right: 1.2rem;
+  padding: 0.8rem 1.2rem;
+  background-color: #a5e5ff;
+  border-radius: 1.6rem;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.8rem;
 `;
 
 const Image = styled.img`
