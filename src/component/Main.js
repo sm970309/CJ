@@ -23,7 +23,7 @@ const Main = () => {
           marginTop: '20px',
         }}
       >
-        가보자고
+        플로잉 하기
       </button>
     </div>
   );
