@@ -35,6 +35,7 @@ html,
 body {
   margin: 0;
   font-family: 'LINESeedKR', sans-serif;
+  word-break: keep-all;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
