@@ -1,10 +1,10 @@
 // src/components/HeartComponent.js
 
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import styled, { keyframes } from "styled-components";
-import { doc, getDoc } from "firebase/firestore";
-import { db } from "../module/firebase";
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import styled, { keyframes } from 'styled-components';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../module/firebase';
 
 export const Flowing = () => {
   const [loveAmount, setLoveAmount] = useState(0);
@@ -15,7 +15,7 @@ export const Flowing = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const projectRef = doc(db, "projects", "projectData");
+        const projectRef = doc(db, 'projects', 'projectData');
         const docSnap = await getDoc(projectRef);
 
         if (docSnap.exists()) {
@@ -23,14 +23,14 @@ export const Flowing = () => {
           if (fetchedData.Love !== undefined) {
             setLoveAmount(fetchedData.Love);
           } else {
-            console.log("No Love data found!");
+            console.log('No Love data found!');
           }
         } else {
-          console.log("No such document!");
+          console.log('No such document!');
         }
       } catch (error) {
-        console.error("Error fetching data: ", error);
-        setError("데이터를 불러오는데 실패했습니다.");
+        console.error('Error fetching data: ', error);
+        setError('데이터를 불러오는데 실패했습니다.');
       }
     };
 
@@ -65,38 +65,38 @@ export const Flowing = () => {
       case 8:
         return '"와 여름이다!!" 더운 여름 계곡에서 신나게 물놀이를 해요.';
       case 9:
-        return "완벽한 레시피는 없어! 뭘 넣어도 화채는 맛있지!";
+        return '완벽한 레시피는 없어! 뭘 넣어도 화채는 맛있지!';
       case 10:
         return '"아름다운 마음들이 모여서" 살미 순복음 교회의 수요예배를 함께 드려요.';
       default:
-        return "알 수 없는 프로그램 번호입니다.";
+        return '알 수 없는 프로그램 번호입니다.';
     }
   };
 
   const getImageTitle = (imageNumber) => {
     switch (imageNumber) {
       case 1:
-        return "아이스브레이킹";
+        return '아이스브레이킹';
       case 2:
-        return "찬양 율동";
+        return '찬양 율동';
       case 3:
-        return "레크레이션";
+        return '레크레이션';
       case 4:
-        return "실내 부스활동";
+        return '실내 부스활동';
       case 5:
-        return "실외 부스활동";
+        return '실외 부스활동';
       case 6:
-        return "연극";
+        return '연극';
       case 7:
-        return "3일차 예배";
+        return '3일차 예배';
       case 8:
-        return "물놀이";
+        return '물놀이';
       case 9:
-        return "간식 만들기";
+        return '간식 만들기';
       case 10:
-        return "살미 수요 예배";
+        return '살미 수요 예배';
       default:
-        return "알 수 없는 프로그램 번호입니다.";
+        return '알 수 없는 프로그램 번호입니다.';
     }
   };
 
@@ -105,7 +105,7 @@ export const Flowing = () => {
   };
 
   return (
-    <div className="component-container" style={{ textAlign: "center" }}>
+    <div className="component-container" style={{ textAlign: 'center' }}>
       <HeartContainer>
         <HeartSvg viewBox="-6 0 140 118.4">
           <defs>
@@ -116,14 +116,7 @@ export const Flowing = () => {
               />
             </clipPath>
           </defs>
-          <rect
-            x="0"
-            y={`${118.4 - filledHeight}`}
-            width="128"
-            height={filledHeight}
-            fill="#FF99CC"
-            clipPath="url(#heartClip)"
-          />
+          <rect x="0" y={`${118.4 - filledHeight}`} width="128" height={filledHeight} fill="#FF99CC" clipPath="url(#heartClip)" />
           <path
             d="M94.4,0c-13.6,0-24.4,10.8-30.4,17.2C58,10.8,47.2,0,33.6,0C14.8,0,0,14.8,0,33.6
             c0,22.8,30.8,43.6,64,72.4C97.2,77.2,128,56.4,128,33.6C128,14.8,113.2,0,94.4,0z"
@@ -142,9 +135,7 @@ export const Flowing = () => {
           <TargetAmount>{targetAmount.toLocaleString()}원 목표</TargetAmount>
         </Amount>
       </ContentBox>
-      <FlowingListTitle>
-        하나님의 사랑을 100% 전달하는 플로잉 ▼
-      </FlowingListTitle>
+      <FlowingListTitle>하나님의 사랑을 100% 전달하는 플로잉 ▼</FlowingListTitle>
 
       <FlowingList>
         {Array.from({ length: 10 }).map((_, index) => (
@@ -156,7 +147,7 @@ export const Flowing = () => {
                 alt={`Programm ${index + 1}`}
                 className="image-item"
                 onClick={() => handleImageClick(index)}
-                style={{ cursor: "pointer" }}
+                style={{ cursor: 'pointer' }}
               />
               <FlowingDesc>{getImageContent(index + 1)}</FlowingDesc>
             </FlowingBoxTop>
@@ -270,6 +261,7 @@ const FlowingDesc = styled.div`
   font-size: 1%.6;
   color: grey;
   margin-bottom: 2.2rem;
+  text-align: center;
 `;
 
 const FlowingTag = styled.div`
