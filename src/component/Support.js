@@ -82,7 +82,7 @@ const Container = styled.div`
 
 const Title = styled.h2`
   font-size: 3rem;
-  color: hotpink;
+  color: #ff99cc;
   margin-bottom: 20px;
   font-family: "MaplestoryBold", "sans-serif";
 `;
@@ -95,7 +95,7 @@ const AmountText = styled.p`
 const StyledInput = styled.input`
   padding: 10px;
   font-size: 1.2rem;
-  border: 2px solid hotpink;
+  border: 2px solid #ff99cc;
   border-radius: 5px;
   margin-bottom: 20px;
   width: calc(100% - 24px);
@@ -105,7 +105,7 @@ const StyledInput = styled.input`
 
   &:focus {
     outline: none;
-    border-color: deeppink;
+    border-color: #ff99cc;
   }
 
   &::placeholder {
@@ -126,16 +126,16 @@ const StyledButton = styled.button`
   cursor: pointer;
   padding: 10px 20px;
   margin-right: 10px;
-  border: 2px solid hotpink;
+  border: 2px solid #ff99cc;
   background-color: white;
-  color: hotpink;
+  color: #ff99cc;
   border-radius: 5px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   &:last-child {
     margin-right: 0;
-    background-color: hotpink;
+    background-color: #ff99cc;
     color: white;
   }
 

@@ -121,14 +121,14 @@ export const Flowing = () => {
             y={`${118.4 - filledHeight}`}
             width="128"
             height={filledHeight}
-            fill="pink"
+            fill="#FF99CC"
             clipPath="url(#heartClip)"
           />
           <path
             d="M94.4,0c-13.6,0-24.4,10.8-30.4,17.2C58,10.8,47.2,0,33.6,0C14.8,0,0,14.8,0,33.6
             c0,22.8,30.8,43.6,64,72.4C97.2,77.2,128,56.4,128,33.6C128,14.8,113.2,0,94.4,0z"
             fill="none"
-            stroke="pink"
+            stroke="#FF99CC"
             strokeWidth="2"
           />
         </HeartSvg>
@@ -211,8 +211,8 @@ const pump = keyframes`
 
 const HeartContainer = styled.div`
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   margin: 0 auto;
   animation: ${pump} 2s infinite;
 `;
@@ -255,7 +255,7 @@ const FlowingLabel = styled.div`
 const Image = styled.img`
   width: 100%;
   max-width: 100%;
-  height: auto;
+  height: 250px;
   object-fit: cover;
 `;
 

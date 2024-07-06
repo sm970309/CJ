@@ -49,16 +49,16 @@ const StyledButton = styled.button`
   cursor: pointer;
   padding: 10px 20px;
   margin-right: 10px;
-  border: 2px solid hotpink;
+  border: 2px solid #ff99cc;
   background-color: white;
-  color: hotpink;
+  color: #ff99cc;
   border-radius: 5px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   &:last-child {
     margin-right: 0;
-    background-color: hotpink;
+    background-color: #ff99cc;
     color: white;
   }
 

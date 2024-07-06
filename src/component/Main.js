@@ -26,7 +26,7 @@ const Wrapper = styled.div`
   left: 0;
   width: 100%;
   height: 100vh;
-  background-image: url("${process.env.PUBLIC_URL}/main.png");
+  background-image: url("${process.env.PUBLIC_URL}/landing.jpg");
   background-size: cover;
   background-position: center;
 `;
@@ -39,8 +39,8 @@ const GoToFlowing = styled.button`
   font-size: 1.8rem;
   font-weight: 700;
   background-color: transparent;
-  color: hotpink;
-  border: 0.2rem solid hotpink;
+  color: #ff66cc;
+  border: 0.2rem solid #ff66cc;
   padding: 0.8rem 1.6rem;
   cursor: pointer;
   border-radius: 0.8rem;

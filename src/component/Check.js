@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { db } from "../module/firebase";
 import { doc, updateDoc } from "firebase/firestore";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import "../check.css"; // CSS 파일을 임포트합니다.
 import styled, { keyframes } from "styled-components";
 
 const Check = () => {
   const [loading, setLoading] = useState(false);
+  const [copied, setCopied] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
@@ -46,7 +48,12 @@ const Check = () => {
           <Container>
             <div>
               <Title>플로잉 방법</Title>
-              <Text>계좌번호: 3333307327865 카카오뱅크 (홍창기)</Text>
+              <CopyToClipboard
+                text="3333307327865 카카오뱅크"
+                onCopy={() => setCopied(true)}
+              >
+                <Text>계좌번호: 3333307327865 카카오뱅크 (홍창기)</Text>
+              </CopyToClipboard>
               <Text>플로잉 금액: {amount.toLocaleString()}원</Text>
             </div>
             <BottomSection>
@@ -79,6 +86,7 @@ const Title = styled.h2`
 const Text = styled.p`
   font-size: 1.5rem;
   margin-bottom: 50px;
+  cursor: pointer; /* 추가된 부분 */
 `;
 
 const BottomSection = styled.div`
