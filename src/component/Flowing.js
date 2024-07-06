@@ -142,13 +142,15 @@ export const Flowing = () => {
           <FlowingBox key={index}>
             {/* <FlowingLabel>카이노스 X 방송팀 응원 지원</FlowingLabel> */}
             <FlowingBoxTop>
-              <Image
-                src={`${process.env.PUBLIC_URL}/pro${index + 1}.png`}
-                alt={`Programm ${index + 1}`}
-                className="image-item"
-                onClick={() => handleImageClick(index)}
-                style={{ cursor: 'pointer' }}
-              />
+              <FlowingImageWrapper>
+                <FlowingImage
+                  src={`${process.env.PUBLIC_URL}/pro${index + 1}.jpg`}
+                  alt={`Programm ${index + 1}`}
+                  className="image-item"
+                  onClick={() => handleImageClick(index)}
+                  style={{ cursor: 'pointer' }}
+                />
+              </FlowingImageWrapper>
               <FlowingDesc>{getImageContent(index + 1)}</FlowingDesc>
             </FlowingBoxTop>
             <FlowingBoxBottom>
@@ -217,7 +219,7 @@ const HeartSvg = styled.svg`
 const FlowingList = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 0.8rem;
+  row-gap: 1.6rem;
 `;
 
 const FlowingBox = styled.div`
@@ -243,11 +245,19 @@ const FlowingLabel = styled.div`
   font-size: 1.8rem;
 `;
 
-const Image = styled.img`
+const FlowingImageWrapper = styled.div`
+  width: 100%;
+  height: 260px;
+  padding: 1.6rem 1.6rem 0.8rem;
+`;
+
+const FlowingImage = styled.img`
   width: 100%;
   max-width: 100%;
-  height: 250px;
+  height: 100%;
   object-fit: cover;
+  border-radius: 1.6rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0.4rem 1.6rem 0px;
 `;
 
 const FlowingBoxTop = styled.div`
@@ -257,10 +267,9 @@ const FlowingBoxTop = styled.div`
 
 const FlowingDesc = styled.div`
   width: 100%;
-  padding: 0.8rem;
+  padding: 0.8rem 1.6rem 1.6rem;
   font-size: 1%.6;
   color: grey;
-  margin-bottom: 2.2rem;
   text-align: center;
 `;
 
