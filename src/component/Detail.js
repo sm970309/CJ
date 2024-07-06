@@ -1,12 +1,12 @@
-import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import styled, { keyframes } from "styled-components";
+import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import styled, { keyframes } from 'styled-components';
 
 const Detail = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
-  const imageNumber = queryParams.get("image");
+  const imageNumber = queryParams.get('image');
 
   const handleSupportClick = () => {
     navigate(`/support?image=${imageNumber}`);
@@ -15,12 +15,8 @@ const Detail = () => {
     navigate(-1); // 이전 페이지로 이동
   };
   return (
-    <div style={{ textAlign: "center", padding: "20px" }}>
-      <Image
-        src={`${process.env.PUBLIC_URL}/prodetail${imageNumber}.png`}
-        alt={`Programm ${imageNumber}`}
-        className="image-item"
-      />
+    <div style={{ textAlign: 'center', padding: '2rem 0' }}>
+      <Image src={`${process.env.PUBLIC_URL}/prodetail${imageNumber}.png`} alt={`Programm ${imageNumber}`} className="image-item" />
       <ButtonBoxContainer>
         <StyledButton onClick={handleBackClick}>뒤로가기</StyledButton>
         <StyledButton onClick={handleSupportClick}>플로잉</StyledButton>
@@ -34,6 +30,8 @@ const Image = styled.img`
   max-width: 100%;
   height: auto;
   object-fit: cover;
+  border-top-left-radius: 1.6rem;
+  border-top-right-radius: 1.6rem;
 `;
 
 const ButtonBoxContainer = styled.div`
@@ -44,7 +42,7 @@ const ButtonBoxContainer = styled.div`
 `;
 
 const StyledButton = styled.button`
-  font-family: "MaplestoryBold", "sans-serif";
+  font-family: 'MaplestoryBold', 'sans-serif';
   font-size: 16px;
   cursor: pointer;
   padding: 10px 20px;
