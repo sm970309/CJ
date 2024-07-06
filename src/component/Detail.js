@@ -17,7 +17,7 @@ const Detail = () => {
   return (
     <div style={{ textAlign: "center", padding: "20px" }}>
       <Image
-        src={`${process.env.PUBLIC_URL}/prodetail${imageNumber}.jpg`}
+        src={`${process.env.PUBLIC_URL}/prodetail${imageNumber}.png`}
         alt={`Programm ${imageNumber}`}
         className="image-item"
       />
