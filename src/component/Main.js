@@ -1,14 +1,14 @@
 // src/components/Main.js
 
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Main = () => {
   const navigate = useNavigate();
 
   const handleSupportClick = () => {
-    navigate("/flowing");
+    navigate('/flowing');
   };
 
   return (
@@ -26,7 +26,7 @@ const Wrapper = styled.div`
   left: 0;
   width: 100%;
   height: 100vh;
-  background-image: url("${process.env.PUBLIC_URL}/landing.jpg");
+  background-image: url('${process.env.PUBLIC_URL}/landing.png');
   background-size: cover;
   background-position: center;
 `;
@@ -44,7 +44,7 @@ const GoToFlowing = styled.button`
   padding: 0.8rem 1.6rem;
   cursor: pointer;
   border-radius: 0.8rem;
-  font-family: "MaplestoryBold", "sans-serif";
+  font-family: 'MaplestoryBold', 'sans-serif';
 
   &:hover,
   :active {
