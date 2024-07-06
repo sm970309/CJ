@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { Header } from './Header';
-import { Footer } from './Footer';
+import styled from "styled-components";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
 
 export const Layout = ({ children }) => (
   <Outer>
@@ -34,20 +34,29 @@ const Main = styled.main`
   flex: 1;
   padding: 1.6rem 0;
   @font-face {
-    font-family: 'LINESeedKR-Bd';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-family: "LINESeedKR-Bd";
+    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2")
+      format("woff2");
     font-weight: 700;
     font-style: normal;
   }
 
+  @font-face {
+    font-family: "MaplestoryBold";
+    src: url("${process.env.PUBLIC_URL}/Maplestory OTF Bold.otf")
+      format("opentype");
+    font-weight: bold;
+    font-style: normal;
+  }
+
   body {
-    font-family: 'LINESeedKR-Bd', sans-serif;
+    font-family: "LINESeedKR-Bd", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
   * {
-    font-family: 'LINESeedKR-Bd', sans-serif;
+    font-family: "LINESeedKR-Bd", sans-serif;
   }
 `;

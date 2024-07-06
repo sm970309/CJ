@@ -13,7 +13,7 @@ const Main = () => {
 
   return (
     <Wrapper>
-      <GoToFlowing onClick={handleSupportClick}>더 알아보기</GoToFlowing>
+      <GoToFlowing onClick={handleSupportClick}>사랑 보내기</GoToFlowing>
     </Wrapper>
   );
 };
@@ -26,7 +26,7 @@ const Wrapper = styled.div`
   left: 0;
   width: 100%;
   height: 100vh;
-  background-image: url("${process.env.PUBLIC_URL}/landing.png");
+  background-image: url("${process.env.PUBLIC_URL}/main.png");
   background-size: cover;
   background-position: center;
 `;
@@ -39,11 +39,12 @@ const GoToFlowing = styled.button`
   font-size: 1.8rem;
   font-weight: 700;
   background-color: transparent;
-  color: #fff;
-  border: 0.2rem solid #fff;
+  color: hotpink;
+  border: 0.2rem solid hotpink;
   padding: 0.8rem 1.6rem;
   cursor: pointer;
   border-radius: 0.8rem;
+  font-family: "MaplestoryBold", "sans-serif";
 
   &:hover,
   :active {
