@@ -78,13 +78,13 @@ const Support = () => {
 const Container = styled.div`
   text-align: center;
   padding: 20px;
-  font-family: "MaplestoryBold", "sans-serif";
 `;
 
 const Title = styled.h2`
   font-size: 3rem;
   color: hotpink;
   margin-bottom: 20px;
+  font-family: "MaplestoryBold", "sans-serif";
 `;
 
 const AmountText = styled.p`
