@@ -106,7 +106,6 @@ export const Flowing = () => {
 
   return (
     <div className="component-container" style={{ textAlign: "center" }}>
-      <h2>플로잉 현황</h2>
       <HeartContainer>
         <HeartSvg viewBox="-6 0 140 118.4">
           <defs>
@@ -134,8 +133,15 @@ export const Flowing = () => {
           />
         </HeartSvg>
       </HeartContainer>
-      <p>{`현재 금액: ${loveAmount.toLocaleString()} / ${targetAmount.toLocaleString()}`}</p>
 
+      <ContentBox>
+        <Amount>
+          {loveAmount.toLocaleString()}
+          <SmallText>원</SmallText>
+          <br />
+          <TargetAmount>{targetAmount.toLocaleString()}원 목표</TargetAmount>
+        </Amount>
+      </ContentBox>
       <FlowingListTitle>
         하나님의 사랑을 100% 전달하는 플로잉 ▼
       </FlowingListTitle>
@@ -164,11 +170,34 @@ export const Flowing = () => {
   );
 };
 
+const ContentBox = styled.div`
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 20px;
+`;
+const Amount = styled.p`
+  font-size: 40px;
+  color: #333333;
+  margin: 0;
+  line-height: 0.8;
+`;
+
+const TargetAmount = styled.span`
+  font-size: 14px;
+  color: #777777;
+  text-align: left;
+`;
+
+const SmallText = styled.span`
+  font-size: 14px; /* '원' 글자를 작게 표시 */
+`;
+
 const FlowingListTitle = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
-  padding: 0.8rem 0;
+  padding: 2rem 0;
+  font-size: 13px;
 `;
 
 const pump = keyframes`
