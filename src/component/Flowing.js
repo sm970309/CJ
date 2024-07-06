@@ -269,6 +269,7 @@ const FlowingDesc = styled.div`
   padding: 0.8rem;
   font-size: 1%.6;
   color: grey;
+  margin-bottom: 2.2rem;
 `;
 
 const FlowingTag = styled.div`
