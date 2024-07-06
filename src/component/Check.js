@@ -23,7 +23,7 @@ const Check = () => {
     }
     setTimeout(() => {
       setLoading(false);
-      navigate("/flowing");
+      navigate("/result");
     }, 2000); // 2초 동안 로딩창 표시
   };
 
