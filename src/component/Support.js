@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { db } from "../module/firebase";
 import { doc, getDoc } from "firebase/firestore";
+import styled, { keyframes } from "styled-components";
 
 const Support = () => {
   const location = useLocation();
@@ -55,41 +56,92 @@ const Support = () => {
     navigate(-1); // 이전 페이지로 이동
   };
   return (
-    <div style={{ textAlign: "center" }}>
-      <h2>{project} 플로잉</h2>
-
-      <p>현재 금액: {currentAmount.toLocaleString()}</p>
-      <input
-        type="text"
-        value={amount}
-        onChange={handleInputChange}
-        placeholder="금액 입력"
-      />
-      <div className="button-container" style={{ marginTop: "10px" }}>
-        <button
-          onClick={handleBackClick}
-          style={{
-            padding: "10px 20px",
-            fontSize: "16px",
-            cursor: "pointer",
-            marginRight: "10px",
-          }}
-        >
-          뒤로가기
-        </button>
-        <button
-          onClick={handleConfirmClick}
-          style={{
-            padding: "10px 20px",
-            fontSize: "16px",
-            cursor: "pointer",
-          }}
-        >
-          확인
-        </button>
-      </div>
-    </div>
+    <>
+      <Container>
+        <Title>{project} 사랑 보내기</Title>
+        <AmountText>현재 금액: {currentAmount.toLocaleString()}</AmountText>
+        <StyledInput
+          type="text"
+          value={amount}
+          onChange={handleInputChange}
+          placeholder="금액 입력"
+        />
+        <ButtonBoxContainer>
+          <StyledButton onClick={handleBackClick}>뒤로가기</StyledButton>
+          <StyledButton onClick={handleConfirmClick}>플로잉</StyledButton>
+        </ButtonBoxContainer>
+      </Container>
+    </>
   );
 };
+
+const Container = styled.div`
+  text-align: center;
+  padding: 20px;
+  font-family: "MaplestoryBold", "sans-serif";
+`;
+
+const Title = styled.h2`
+  font-size: 3rem;
+  color: hotpink;
+  margin-bottom: 20px;
+`;
+
+const AmountText = styled.p`
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+`;
+
+const StyledInput = styled.input`
+  padding: 10px;
+  font-size: 1.2rem;
+  border: 2px solid hotpink;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  width: calc(100% - 24px);
+  max-width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: deeppink;
+  }
+
+  &::placeholder {
+    color: #ccc;
+  }
+`;
+
+const ButtonBoxContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+`;
+
+const StyledButton = styled.button`
+  font-family: "MaplestoryBold", "sans-serif";
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: 2px solid hotpink;
+  background-color: white;
+  color: hotpink;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  &:last-child {
+    margin-right: 0;
+    background-color: hotpink;
+    color: white;
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+`;
 
 export default Support;
