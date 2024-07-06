@@ -14,21 +14,49 @@ const Detail = () => {
   const handleBackClick = () => {
     navigate(-1); // 이전 페이지로 이동
   };
+  const handleOnLoad = (e) => {
+    e.target.classList.remove('skelton');
+  };
   return (
-    <div style={{ textAlign: 'center', padding: '2rem 0' }}>
-      <Image src={`${process.env.PUBLIC_URL}/prodetail${imageNumber}.png`} alt={`Programm ${imageNumber}`} className="image-item" />
+    <Wrapper>
+      <Image
+        src={`${process.env.PUBLIC_URL}/prodetail${imageNumber}.png`}
+        alt={`Programm ${imageNumber}`}
+        className="image-item skelton"
+        onLoad={handleOnLoad}
+      />
       <ButtonBoxContainer>
         <StyledButton onClick={handleBackClick}>뒤로가기</StyledButton>
         <StyledButton onClick={handleSupportClick}>플로잉</StyledButton>
       </ButtonBoxContainer>
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  text-align: center;
+  padding: 2rem 0;
+
+  .skelton {
+    animation: ${keyframes`
+    0% {
+      background-color: #f6f7f8;
+    }
+    50% {
+      background-color: #edeef1;
+    }
+    100% {
+      background-color: #f6f7f8;
+    }
+  `} 1s infinite;
+  }
+`;
 
 const Image = styled.img`
   width: 100%;
   max-width: 100%;
   height: auto;
+  min-height: 30rem;
   object-fit: cover;
   border-top-left-radius: 1.6rem;
   border-top-right-radius: 1.6rem;
